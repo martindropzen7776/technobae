@@ -27,14 +27,36 @@ src="https://www.facebook.com/tr?id=198264013296152&ev=PageView&noscript=1"
 
 
     <style>
-        body {
-            font-family: 'Kanit', sans-serif;
-            background-color: #000000;
-            text-align: center;
-            color: white;
-            margin: 0;
-            padding: 0;
-        }
+body {
+    font-family: 'Kanit', sans-serif;
+    background: radial-gradient(circle at top left, #1a1a1a, #000000 70%);
+    background-size: cover;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    box-shadow: inset 0 0 100px rgba(255, 255, 255, 0.05), inset 0 0 200px rgba(255, 255, 255, 0.03);
+    position: relative;
+}
+
+/* Agregar una textura con líneas sutiles */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.02),
+        rgba(255, 255, 255, 0.02) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+    opacity: 0.2;
+    pointer-events: none;
+}
 
         .container {
             max-width: 400px;
@@ -103,6 +125,7 @@ src="https://www.facebook.com/tr?id=198264013296152&ev=PageView&noscript=1"
         <!-- Botón con llamada a la función de JavaScript -->
         <a href="#" class="cta-btn" onclick="openRandomLink()">
             <span>ESCUCHALO AHORA EN SPOTIFY!</span>
+            <img src="Spotify_logo_without_text.svg.png" alt="WhatsApp" class="whatsapp-icon">
         </a>
 
         <div class="footer">
