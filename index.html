@@ -31,71 +31,44 @@ body {
     font-family: 'Kanit', sans-serif;
     margin: 0;
     padding: 0;
-    color: white;
     text-align: center;
+    color: #f5f5f5;
+    background: linear-gradient(135deg, #1c1c1c 0%, #2e2e2e 40%, #000000 100%);
+    background-attachment: fixed;
     overflow: hidden;
     position: relative;
-    background: radial-gradient(circle at center, #111111 0%, #000000 100%);
-    background-attachment: fixed;
 }
 
-/* NEÓN CIRCULAR en el fondo tipo luz de escenario */
+/* LÍNEAS GEOMÉTRICAS ESTÁTICAS estilo sci-fi */
 body::before {
-    content: '';
+    content: "";
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 200vw;
-    height: 200vh;
-    background: radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 60%);
-    border-radius: 50%;
-    animation: pulseCenter 6s ease-in-out infinite;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: 
+        linear-gradient(45deg, rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(-45deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.4;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* DESTELLOS ANIMADOS tipo luces suaves */
+body::after {
+    content: "";
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    animation: softGlow 10s ease-in-out infinite alternate;
     z-index: 0;
     pointer-events: none;
 }
 
-/* LÍNEAS DE ENERGÍA animadas estilo digital grid */
-body::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: repeating-linear-gradient(
-        0deg,
-        rgba(255, 255, 255, 0.015) 0px,
-        rgba(255, 255, 255, 0.015) 1px,
-        transparent 1px,
-        transparent 4px
-    ),
-    repeating-linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.015) 0px,
-        rgba(255, 255, 255, 0.015) 1px,
-        transparent 1px,
-        transparent 4px
-    );
-    animation: glitchGrid 10s linear infinite;
-    z-index: 1;
-    opacity: 0.1;
-    pointer-events: none;
-}
-
-/* EFECTO DE DESTELLO RANDOM */
-@keyframes pulseCenter {
-    0%, 100% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.06;
-    }
-    50% {
-        transform: translate(-50%, -50%) scale(1.2);
-        opacity: 0.15;
-    }
-}
-
-@keyframes glitchGrid {
-    0% { background-position: 0 0, 0 0; }
-    100% { background-position: 100px 200px, 200px 100px; }
+@keyframes softGlow {
+    0% { transform: scale(1); opacity: 0.06; }
+    100% { transform: scale(1.3); opacity: 0.12; }
 }
 
 
